@@ -1,9 +1,5 @@
 package com.proyecto.planillas.area;
 
-import java.time.LocalDate;
-
-import com.fasterxml.jackson.annotation.JsonProperty;
-
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
 import jakarta.validation.constraints.NotBlank;
@@ -15,9 +11,9 @@ public record AreaWriteDTO(
         @Size(max = 50, message = "El nombre no puede superar los 50 caracteres")
         String nombre,
         @Enumerated(EnumType.STRING)
-        AreaEstado estado
-        // @JsonProperty("fecha_creacion")
-        // LocalDate fechaCreacion 
+        AreaEstado estado,
+        Long empresaId
+        
     ) {
 
 }

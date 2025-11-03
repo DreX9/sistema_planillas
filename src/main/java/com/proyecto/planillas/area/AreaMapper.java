@@ -3,6 +3,7 @@ package com.proyecto.planillas.area;
 import org.springframework.stereotype.Component;
 
 import com.proyecto.planillas.common.MapperInterface;
+import com.proyecto.planillas.empresa.Empresa;
 
 @Component
 public class AreaMapper implements MapperInterface<Area, AreaWriteDTO, AreaViewDTO> {
@@ -12,7 +13,10 @@ public class AreaMapper implements MapperInterface<Area, AreaWriteDTO, AreaViewD
         return new AreaViewDTO(
                 entity.getId(),
                 entity.getNombre(),
-                entity.getEstado());
+                entity.getEstado(),
+                entity.getFechaCreacion(),
+                entity.getEmpresa().getId(),
+                entity.getEmpresa().getNombre());
     }
 
      
@@ -22,6 +26,7 @@ public class AreaMapper implements MapperInterface<Area, AreaWriteDTO, AreaViewD
                 .id(dto.id())
                 .nombre(dto.nombre())
                 .estado(dto.estado())
+                .empresa(Empresa.builder().id(dto.empresaId()).build())
                 .build();
     }
 
