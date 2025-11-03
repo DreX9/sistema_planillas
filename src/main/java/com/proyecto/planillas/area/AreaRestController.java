@@ -7,12 +7,15 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ResponseStatusException;
 
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 
 @RestController
@@ -30,7 +33,7 @@ public class AreaRestController {
     }
 
     @GetMapping("{id}")
-    public ResponseEntity<AreaViewDTO> getById(Long id){
+    public ResponseEntity<AreaViewDTO> getById(@PathVariable Long id){
         try {
             return ResponseEntity.ok(areaService.getAreaById(id));
         } catch (Exception e) {
@@ -39,7 +42,7 @@ public class AreaRestController {
     }
 
     @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<AreaViewDTO> insertArea(AreaWriteDTO areaWriteDTO){
+    public ResponseEntity<AreaViewDTO> insertArea(@Valid @RequestBody AreaWriteDTO areaWriteDTO){
         try {
             return ResponseEntity.ok(areaService.addArea(areaWriteDTO));
         } catch (Exception e) {
@@ -47,7 +50,7 @@ public class AreaRestController {
         }
     }
     @PutMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
-    public  ResponseEntity<AreaViewDTO> updateArea(AreaWriteDTO areaWriteDTO){
+    public  ResponseEntity<AreaViewDTO> updateArea(@RequestBody AreaWriteDTO areaWriteDTO){
         try {
             return ResponseEntity.ok(areaService.updateArea(areaWriteDTO));
         } catch (Exception e) {
@@ -56,7 +59,7 @@ public class AreaRestController {
     }       
 
     @DeleteMapping("{id}")
-    public ResponseEntity<Void> deleteArea(Long id){
+    public ResponseEntity<Void> deleteArea(@PathVariable Long id){
         try {
             areaService.deleteAreaById(id);
             return ResponseEntity.ok().build();

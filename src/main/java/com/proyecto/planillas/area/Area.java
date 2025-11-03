@@ -25,7 +25,7 @@ public class Area {
     private String nombre;
     @Column(name = "area_estado", nullable = false, length = 10)
     private AreaEstado estado;
-    //Por verificar formato de fecha
-    @Column(name = "area_fecha_creacion", nullable = false)
-    private LocalDate fechaCreacion = LocalDate.now();
+    // //Por verificar formato de fecha
+    // @Column(name = "area_fecha_creacion", nullable = false)
+    // private LocalDate fechaCreacion = LocalDate.now();
 }

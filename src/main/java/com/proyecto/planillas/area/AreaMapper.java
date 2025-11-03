@@ -12,18 +12,16 @@ public class AreaMapper implements MapperInterface<Area, AreaWriteDTO, AreaViewD
         return new AreaViewDTO(
                 entity.getId(),
                 entity.getNombre(),
-                entity.getEstado(),
-                entity.getFechaCreacion().toString());
+                entity.getEstado());
     }
 
-    
+     
     @Override
     public Area toEntity(AreaWriteDTO dto) {
         return Area.builder()
                 .id(dto.id())
                 .nombre(dto.nombre())
                 .estado(dto.estado())
-                .fechaCreacion(dto.fechaCreacion())
                 .build();
     }
 
