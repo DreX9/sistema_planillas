@@ -31,10 +31,10 @@ public class HorarioMapper implements MapperInterface<Horario, HorarioWriteDTO, 
                 .build();
     }
     
-    public void updateEntityFromDTO(HorarioWriteDTO dto, Horario entity) {
-        entity.setHoraEntrada(dto.horaEntrada());
-        entity.setHoraSalida(dto.horaSalida());
-        entity.setDias(dto.dias());
-        entity.setTurnos(dto.turnos());
-    }
+    // public void updateEntityFromDTO(HorarioWriteDTO dto, Horario entity) {
+    //     entity.setHoraEntrada(dto.horaEntrada());
+    //     entity.setHoraSalida(dto.horaSalida());
+    //     entity.setDias(dto.dias());
+    //     entity.setTurnos(dto.turnos());
+    // }
 }
