@@ -4,7 +4,7 @@ package com.proyecto.planillas.horario;
 import org.springframework.stereotype.Component;
 
 import com.proyecto.planillas.common.MapperInterface;
-import com.proyecto.planillas.dias.HorarioDias;
+
 
 @Component
 public class HorarioMapper implements MapperInterface<Horario, HorarioWriteDTO, HorarioViewDTO> {
@@ -15,7 +15,7 @@ public class HorarioMapper implements MapperInterface<Horario, HorarioWriteDTO, 
             entity.getId(),
             entity.getHoraEntrada(),
             entity.getHoraSalida(),
-            entity.getHorarioDias().getDia(), 
+            entity.getDias(), 
             entity.getTurnos()
         );
     }
@@ -26,9 +26,15 @@ public class HorarioMapper implements MapperInterface<Horario, HorarioWriteDTO, 
                 .id(dto.id())
                 .horaEntrada(dto.horaEntrada())
                 .horaSalida(dto.horaSalida())
-                .horarioDias(HorarioDias.builder().id(dto.horarioDiasId()).build())
+                .dias(dto.dias())
                 .turnos(dto.turnos())
                 .build();
     }
-
+    
+    public void updateEntityFromDTO(HorarioWriteDTO dto, Horario entity) {
+        entity.setHoraEntrada(dto.horaEntrada());
+        entity.setHoraSalida(dto.horaSalida());
+        entity.setDias(dto.dias());
+        entity.setTurnos(dto.turnos());
+    }
 }
