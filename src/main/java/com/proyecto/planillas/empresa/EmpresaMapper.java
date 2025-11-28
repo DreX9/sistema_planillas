@@ -9,7 +9,7 @@ public class EmpresaMapper implements MapperInterface<Empresa, EmpresaWrite, Emp
     @Override
     public EmpresaView toDto(Empresa entity) {
        return new EmpresaView(
-        entity.getId(),
+                entity.getId(),
                 entity.getNombre(),
                 entity.getRuc(),
                 entity.getRazonSocial(),
