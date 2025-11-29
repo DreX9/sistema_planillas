@@ -41,5 +41,6 @@ public class Empresa {
     
     @Column(nullable = false, name = "empresa_direccion")
     private String direccion;
+    
 
 }
