@@ -8,7 +8,6 @@ import org.springframework.stereotype.Service;
 
 
 import com.proyecto.planillas.empleado.EmpleadoRepository;
-import com.proyecto.planillas.security.CustomUserDetail;
 import com.proyecto.planillas.usuario.Usuario;
 import com.proyecto.planillas.usuario.UsuarioRepository;
 import com.proyecto.planillas.util.AuthenticationRequest;

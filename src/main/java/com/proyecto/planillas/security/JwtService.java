@@ -1,7 +1,5 @@
 package com.proyecto.planillas.security;
 
-
-
 import java.util.HashMap;
 
 import javax.crypto.SecretKey;
@@ -18,7 +16,6 @@ import com.proyecto.planillas.config.JwtConfig;
 
 import lombok.RequiredArgsConstructor;
 
-
 @Service
 @RequiredArgsConstructor
 public class JwtService {
@@ -26,7 +23,17 @@ public class JwtService {
     private final SecretKey secretKey;
 
     public String generateToken(UserDetails userDetails) {
-        return generateToken(new HashMap<>(), userDetails);
+
+        Map<String, Object> claims = new HashMap<>();
+
+        // AGREGAR AUTORIDADES DENTRO DEL TOKEN
+        claims.put("authorities", userDetails.getAuthorities()
+                .stream()
+                .map(a -> a.getAuthority())
+                .toList()
+        );
+
+        return generateToken(claims, userDetails);
     }
 
     public String generateToken(

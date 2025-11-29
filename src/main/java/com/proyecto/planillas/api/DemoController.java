@@ -18,4 +18,5 @@ public class DemoController {
     public String sayHelloAdmin() {
         return "Hello ADMINISTRADOR from secured endpoint";
     }
+    
 }
