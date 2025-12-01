@@ -56,7 +56,6 @@ public class PlanillasApplication {
                     .orElseGet(() -> empresaRepository.save(Empresa.builder()
                             .nombre("Empresa Principal")
                             .ruc("12345678901")
-                            .razonSocial("Empresa Principal S.A.")
                             .telefono("987654321")
                             .telefonoRespaldo("912345678")
                             .correo("contacto@empresa.com")

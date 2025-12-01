@@ -27,9 +27,6 @@ public class Empresa {
     @Column(nullable = false, name = "empresa_ruc", length = 11, unique = true)
     private String ruc;
     
-    @Column(nullable = false, name = "empresa_razon")
-    private String razonSocial;
-    
     @Column(nullable = false, name = "empresa_telefono", length = 9)
     private String telefono;
     

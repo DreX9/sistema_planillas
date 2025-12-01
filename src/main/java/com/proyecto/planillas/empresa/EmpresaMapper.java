@@ -12,7 +12,6 @@ public class EmpresaMapper implements MapperInterface<Empresa, EmpresaWrite, Emp
                 entity.getId(),
                 entity.getNombre(),
                 entity.getRuc(),
-                entity.getRazonSocial(),
                 entity.getTelefono(),
                 entity.getTelefonoRespaldo(),
                 entity.getCorreo(),
@@ -26,7 +25,6 @@ public class EmpresaMapper implements MapperInterface<Empresa, EmpresaWrite, Emp
                 .id(dto.id())
                 .nombre(dto.nombre())
                 .ruc(dto.ruc())
-                .razonSocial(dto.razonSocial())
                 .telefono(dto.telefono())
                 .telefonoRespaldo(dto.telefonoRespaldo())
                 .correo(dto.correo())

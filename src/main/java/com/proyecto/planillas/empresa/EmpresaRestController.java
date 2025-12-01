@@ -17,7 +17,6 @@ import org.springframework.web.server.ResponseStatusException;
 
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
-
 @RestController
 @RequestMapping("empresa")
 @RequiredArgsConstructor

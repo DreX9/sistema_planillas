@@ -6,7 +6,6 @@ public record EmpresaView(
         Long id,
         String nombre,
         String ruc,
-        @JsonProperty("razon_social") String razonSocial,
         String telefono,
         @JsonProperty("telefono_respaldo") String telefonoRespaldo,
         String correo,

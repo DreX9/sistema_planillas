@@ -20,9 +20,6 @@ public record EmpresaWrite(
     @JsonProperty("ruc")
     String ruc,
 
-    @NotBlank(message = "La razón social es un campo obligatorio")
-    @JsonProperty("razon_social")
-    String razonSocial,
 
     @NotBlank(message = "El teléfono principal es obligatorio")
     @Pattern(regexp = "\\d{9}", message = "El teléfono debe tener exactamente 9 dígitos")

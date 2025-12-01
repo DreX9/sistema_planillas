@@ -43,10 +43,10 @@ public class SecurityConfig {
                 .cors(Customizer.withDefaults())
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers("/api/v1/auth/**", "/auth/**").permitAll()
-                        .requestMatchers("/info/**").permitAll()
+                        .requestMatchers("/info/**", "/api/v1/info/**").permitAll()
                         .requestMatchers("/demo/user/**").hasAnyAuthority("USER", "ADMIN")
                         .requestMatchers("/demo/admin/**").hasRole("ADMIN")
-                        .requestMatchers("/empresa/**").hasRole("ADMIN")
+                        .requestMatchers("/api/v1/empresa/**").hasRole("ADMIN")
                         .requestMatchers("/area/**").hasRole("ADMIN")
                         .requestMatchers("/cargo/**").hasRole("ADMIN")
                         .requestMatchers("/horario/**").hasRole("ADMIN")
