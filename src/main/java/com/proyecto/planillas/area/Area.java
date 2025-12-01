@@ -26,11 +26,11 @@ import lombok.NoArgsConstructor;
 public class Area {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "area_id")
+    @Column(name = "area_id", nullable = false, length = 10)
     private Long id;
     @Column(name = "area_nombre", nullable = false, length = 50, unique = true)
     private String nombre;
-    @Column(name = "area_estado", nullable = false, length = 10)
+    @Column(name = "area_estado", nullable = false, length = 15)
     private AreaEstado estado;
     @Column(name = "fecha_creacion", nullable = false, updatable = false)
     private LocalDate fechaCreacion;

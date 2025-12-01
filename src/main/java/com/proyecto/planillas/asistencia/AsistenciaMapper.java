@@ -3,6 +3,7 @@ package com.proyecto.planillas.asistencia;
 import org.springframework.stereotype.Component;
 
 import com.proyecto.planillas.common.MapperInterface;
+import com.proyecto.planillas.empleado.Empleado;
 
 @Component
 
@@ -16,20 +17,23 @@ public class AsistenciaMapper implements MapperInterface<Asistencia, AsistenciaW
             entity.getHoraFinal(),
             entity.getFechaRegistro(),
             entity.getEstado(),
-            entity.getDescripcion()
+            entity.getDescripcion(),
+            entity.getEmpleado().getId(),
+            entity.getEmpleado().getNombre()
         );
     }
 
     @Override
     public Asistencia toEntity(AsistenciaWriteDTO dto) {
-        Asistencia asistencia = new Asistencia();
-        asistencia.setId(dto.id());
-        asistencia.setHoraInicio(dto.horaInicio());
-        asistencia.setHoraFinal(dto.horaFinal());
-        asistencia.setFechaRegistro(dto.fechaRegistro());
-        asistencia.setEstado(dto.estado());
-        asistencia.setDescripcion(dto.descripcion());
-        return asistencia;
+        return Asistencia.builder()
+            .id(dto.id())
+            .horaInicio(dto.horaInicio())
+            .horaFinal(dto.horaFinal())
+            .fechaRegistro(dto.fechaRegistro())
+            .estado(dto.estado())
+            .descripcion(dto.descripcion())
+            .empleado(Empleado.builder().id(dto.empleadoId()).build())
+            .build();
     }
     
 

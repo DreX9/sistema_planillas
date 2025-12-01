@@ -2,6 +2,8 @@ package com.proyecto.planillas.horario;
 
 import java.time.LocalTime;
 
+import com.proyecto.planillas.empleado.Empleado;
+
 // 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -33,7 +35,6 @@ public class Horario {
     private String turnos;
     @Column(name = "dias", length = 50, nullable = false)
     private String dias;
-    
     // @ManyToOne(fetch = FetchType.LAZY)
     // private Empleado empleado;
 

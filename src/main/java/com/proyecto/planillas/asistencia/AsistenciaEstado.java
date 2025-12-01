@@ -1,6 +1,8 @@
 package com.proyecto.planillas.asistencia;
 
 public enum AsistenciaEstado {
-    ACTIVO,
-    INACTIVO
+    Puntual,
+    Tarde,
+    Ausente,
+    Justificado
 }

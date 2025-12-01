@@ -4,7 +4,6 @@ import java.util.List;
 
 
 import org.springframework.stereotype.Service;
-
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 
@@ -51,26 +50,7 @@ private final HorarioMapper horarioMapper;
 
     }
 
-    // @PostConstruct
-    // public void initHorarios() {
-    //     if (horarioRepository.count() == 0) {
-    //         List<Horario> horariosIniciales = List.of(
-    //             Horario.builder()
-    //                 .horaEntrada(java.time.LocalTime.of(8, 0))
-    //                 .horaSalida(java.time.LocalTime.of(17, 0))
-    //                 .dias("Lunes a Viernes")
-    //                 .turnos("Turno Mañana")
-    //                 .build(),
-    //             Horario.builder()
-    //                 .horaEntrada(java.time.LocalTime.of(14, 0))
-    //                 .horaSalida(java.time.LocalTime.of(22, 0))
-    //                 .dias("Lunes a Viernes")
-    //                 .turnos("Turno Tarde")
-    //                 .build()
-    //         );
-    //         horarioRepository.saveAll(horariosIniciales);
-    //     }      
-    //}   
+
 
 
 }

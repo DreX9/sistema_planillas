@@ -1,6 +1,8 @@
 package com.proyecto.planillas.empleado;
 
+import com.proyecto.planillas.area.Area;
 import com.proyecto.planillas.cargo.Cargo;
+import com.proyecto.planillas.horario.Horario;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -32,5 +34,11 @@ public class Empleado {
     @ManyToOne(fetch = FetchType.EAGER, optional = false)
     @JoinColumn(name = "cargo_id", nullable = false)
     private Cargo rol;
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "horario_id", nullable = false)
+    private Horario horario;
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "area_id", nullable = false)
+    private Area area;
     
 }

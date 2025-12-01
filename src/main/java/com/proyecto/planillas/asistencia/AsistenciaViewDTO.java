@@ -9,15 +9,20 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public record AsistenciaViewDTO(
     Long id,
     @JsonFormat(pattern = "HH:mm")
-    @JsonProperty("hora_entrada")
+    @JsonProperty("hora_inicio")
     LocalTime horaInicio,
     @JsonFormat(pattern = "HH:mm")
-    @JsonProperty("hora_entrada")
+    @JsonProperty("hora_final")
     LocalTime horaFinal,
     @JsonProperty("fecha_registro")
     LocalDate fechaRegistro,
     AsistenciaEstado estado,
-    String descripcion
+    String descripcion,
+    Long empleadoId,
+    @JsonProperty("empleado_nombre")
+    String empleadoNombre
+
+
 
 ) {
 

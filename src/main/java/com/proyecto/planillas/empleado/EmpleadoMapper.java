@@ -2,8 +2,10 @@ package com.proyecto.planillas.empleado;
 
 import org.springframework.stereotype.Component;
 
+import com.proyecto.planillas.area.Area;
 import com.proyecto.planillas.cargo.Cargo;
 import com.proyecto.planillas.common.MapperInterface;
+import com.proyecto.planillas.horario.Horario;
 
 @Component
 public class EmpleadoMapper implements MapperInterface<Empleado, EmpleadoWriteDTO, EmpleadoViewDTO> {
@@ -14,7 +16,13 @@ public class EmpleadoMapper implements MapperInterface<Empleado, EmpleadoWriteDT
                 entity.getId(),
                 entity.getNombre(),
                 entity.getApellido(),
-                entity.getRol().getNombre()
+                entity.getRol().getId(),
+                entity.getRol().getNombre(),
+                entity.getHorario().getId(),
+                entity.getHorario().getTurnos(),
+                entity.getArea().getId(),
+                entity.getArea().getNombre()
+
             );
     }
 
@@ -25,6 +33,8 @@ public class EmpleadoMapper implements MapperInterface<Empleado, EmpleadoWriteDT
         .nombre(dto.nombre())
         .apellido(dto.apellido())
         .rol(Cargo.builder().id(dto.rolId()).build())
+        .horario(Horario.builder().id(dto.horarioId()).build())
+        .area(Area.builder().id(dto.areaId()).build())
         .build();
     }
 

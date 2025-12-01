@@ -50,6 +50,8 @@ public class SecurityConfig {
                         .requestMatchers("/area/**").hasRole("ADMIN")
                         .requestMatchers("/cargo/**").hasRole("ADMIN")
                         .requestMatchers("/horario/**").hasRole("ADMIN")
+                        .requestMatchers("/asistencia/**").hasRole("ADMIN")
+                        .requestMatchers("/empleado/**").hasRole("ADMIN")
                         .anyRequest().authenticated()
                 )
                 .sessionManagement(sess -> sess.sessionCreationPolicy(SessionCreationPolicy.STATELESS))

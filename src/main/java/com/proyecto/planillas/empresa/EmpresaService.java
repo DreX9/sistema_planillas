@@ -3,7 +3,6 @@ package com.proyecto.planillas.empresa;
 import java.util.List;
 
 import org.springframework.stereotype.Service;
-
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 
@@ -48,5 +47,5 @@ public class EmpresaService {
             throw new RuntimeException("ID not found"+ (id));
         }
         
-    }
+    }    
 }
