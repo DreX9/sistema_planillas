@@ -1,6 +1,7 @@
 package com.proyecto.planillas.empresa;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -63,10 +64,13 @@ public class EmpresaRestController {
     
 
     @DeleteMapping("{id}")
-    public ResponseEntity<String> deleteById(@PathVariable long id){
+    public ResponseEntity<Map<String, Object>> deleteById(@PathVariable long id){
         try {
             empresaService.deletePeridsById(id);
-            return ResponseEntity.ok(String.format("Empresa delete with id: %d", id)); 
+            return ResponseEntity.ok(Map.of(
+            "mensaje", "Empresa eliminada",
+            "id", id
+        ));
         } catch(Exception e){
             throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, e.getMessage());
         }

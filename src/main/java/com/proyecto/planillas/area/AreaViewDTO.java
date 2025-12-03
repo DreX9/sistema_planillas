@@ -9,7 +9,6 @@ public record AreaViewDTO(
                 String nombre,
                 AreaEstado estado,
                 @JsonProperty("fecha_creacion") LocalDate fechaCreacion,
-                Long empresaId,
                 @JsonProperty("nombre_empresa") String empresaNombre) {
 
 }

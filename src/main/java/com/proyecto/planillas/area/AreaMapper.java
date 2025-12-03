@@ -15,7 +15,6 @@ public class AreaMapper implements MapperInterface<Area, AreaWriteDTO, AreaViewD
                 entity.getNombre(),
                 entity.getEstado(),
                 entity.getFechaCreacion(),
-                entity.getEmpresa().getId(),
                 entity.getEmpresa().getNombre());
     }
 

@@ -18,21 +18,16 @@ public class AsistenciaMapper implements MapperInterface<Asistencia, AsistenciaW
             entity.getFechaRegistro(),
             entity.getEstado(),
             entity.getDescripcion(),
-            entity.getEmpleado().getId(),
-            entity.getEmpleado().getNombre()
+            entity.getEmpleadoId().getId(),
+            entity.getEmpleadoId().getNombre()
         );
     }
 
     @Override
     public Asistencia toEntity(AsistenciaWriteDTO dto) {
         return Asistencia.builder()
-            .id(dto.id())
-            .horaInicio(dto.horaInicio())
-            .horaFinal(dto.horaFinal())
-            .fechaRegistro(dto.fechaRegistro())
-            .estado(dto.estado())
             .descripcion(dto.descripcion())
-            .empleado(Empleado.builder().id(dto.empleadoId()).build())
+            .empleadoId(Empleado.builder().id(dto.empleadoId()).build())
             .build();
     }
     

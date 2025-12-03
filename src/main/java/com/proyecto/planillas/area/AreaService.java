@@ -1,13 +1,7 @@
 package com.proyecto.planillas.area;
 
 import java.util.List;
-
-import org.springframework.security.access.method.P;
 import org.springframework.stereotype.Service;
-
-import com.proyecto.planillas.empresa.Empresa;
-
-import jakarta.annotation.PostConstruct;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 
@@ -46,11 +40,17 @@ public class AreaService {
 
     @Transactional
     public void deleteAreaById(Long id) {
-        try {
-            areaRepository.deleteById(id);
-        } catch (Exception e) {
-            throw new RuntimeException("ID not found" + (id));
+        if (!areaRepository.existsById(id)) {
+            throw new IllegalStateException("ID not found " + id);
         }
+        areaRepository.deleteById(id);
+    }
+
+    public List<AreaViewDTO> getAreasByEmpresaId(Long empresaId) {
+        return areaRepository.findByEmpresaId(empresaId)
+                .stream()
+                .map(areaMapper::toDto)
+                .toList();
     }
 
 }

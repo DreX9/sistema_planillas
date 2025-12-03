@@ -38,5 +38,5 @@ public class Asistencia {
     private String descripcion;
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "empleado_id", nullable = false)
-    private Empleado empleado;
+    private Empleado empleadoId;
 }

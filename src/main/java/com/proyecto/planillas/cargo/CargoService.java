@@ -2,8 +2,6 @@ package com.proyecto.planillas.cargo;
 
 import java.util.List;
 import org.springframework.stereotype.Service;
-
-import jakarta.annotation.PostConstruct;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 
