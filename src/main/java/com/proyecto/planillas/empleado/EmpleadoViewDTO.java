@@ -9,10 +9,8 @@ public record EmpleadoViewDTO(
         Long rolid,
         @JsonProperty("nombre_rol")
         String nombrerol,
-        Long horarioId,
         @JsonProperty("turno_horario")
         String turnos,
-        Long areaid,
         @JsonProperty("nombre_area")
         String nombreArea
 

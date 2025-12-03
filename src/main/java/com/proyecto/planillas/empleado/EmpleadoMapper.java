@@ -18,9 +18,7 @@ public class EmpleadoMapper implements MapperInterface<Empleado, EmpleadoWriteDT
                 entity.getApellido(),
                 entity.getRol().getId(),
                 entity.getRol().getNombre(),
-                entity.getHorario().getId(),
                 entity.getHorario().getTurnos(),
-                entity.getArea().getId(),
                 entity.getArea().getNombre()
 
             );
