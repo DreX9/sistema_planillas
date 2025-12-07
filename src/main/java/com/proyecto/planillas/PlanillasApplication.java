@@ -15,7 +15,9 @@ import com.proyecto.planillas.area.AreaRepository;
 import com.proyecto.planillas.cargo.Cargo;
 import com.proyecto.planillas.cargo.CargoRepository;
 import com.proyecto.planillas.empleado.Empleado;
+import com.proyecto.planillas.empleado.EmpleadoEstado;
 import com.proyecto.planillas.empleado.EmpleadoRepository;
+import com.proyecto.planillas.empleado.EmpleadoTIpoDocumento;
 import com.proyecto.planillas.empresa.Empresa;
 import com.proyecto.planillas.empresa.EmpresaRepository;
 import com.proyecto.planillas.horario.Horario;
@@ -83,6 +85,12 @@ public class PlanillasApplication {
                                                 Empleado.builder()
                                                                 .nombre("Admin")
                                                                 .apellido("Sistema")
+                                                                .telefono("987654777")
+                                                                .correo("admin@gmail.com")
+                                                                .tipoDocumento(EmpleadoTIpoDocumento.DNI)
+                                                                .numeroDocumento("98765432")
+                                                                .estado(EmpleadoEstado.ACTIVO)
+                                                                .salarioBase( java.math.BigDecimal.valueOf(30.00))
                                                                 .rol(cargoAdmin)
                                                                 .horario(horarioDefault)
                                                                 .area(areaDefault)

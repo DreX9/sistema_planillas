@@ -16,7 +16,13 @@ public class EmpleadoMapper implements MapperInterface<Empleado, EmpleadoWriteDT
                 entity.getId(),
                 entity.getNombre(),
                 entity.getApellido(),
-                entity.getRol().getId(),
+                entity.getTelefono(),
+                entity.getCorreo(),
+                entity.getTipoDocumento(),
+                entity.getNumeroDocumento(),
+                entity.getFechaContratacion(),
+                entity.getEstado(),
+                entity.getSalarioBase(),
                 entity.getRol().getNombre(),
                 entity.getHorario().getTurnos(),
                 entity.getArea().getNombre()
@@ -30,6 +36,12 @@ public class EmpleadoMapper implements MapperInterface<Empleado, EmpleadoWriteDT
         .id(dto.id())
         .nombre(dto.nombre())
         .apellido(dto.apellido())
+        .telefono(dto.telefono())
+        .correo(dto.correo())
+        .tipoDocumento(dto.tipoDocumento())
+        .numeroDocumento(dto.numeroDocumento())
+        .estado(dto.estado())
+        .salarioBase(dto.salarioBase())
         .rol(Cargo.builder().id(dto.rolId()).build())
         .horario(Horario.builder().id(dto.horarioId()).build())
         .area(Area.builder().id(dto.areaId()).build())

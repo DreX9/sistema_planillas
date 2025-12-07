@@ -18,7 +18,6 @@ public class AsistenciaMapper implements MapperInterface<Asistencia, AsistenciaW
             entity.getFechaRegistro(),
             entity.getEstado(),
             entity.getDescripcion(),
-            entity.getEmpleadoId().getId(),
             entity.getEmpleadoId().getNombre()
         );
     }
@@ -28,6 +27,7 @@ public class AsistenciaMapper implements MapperInterface<Asistencia, AsistenciaW
         return Asistencia.builder()
             .descripcion(dto.descripcion())
             .empleadoId(Empleado.builder().id(dto.empleadoId()).build())
+            .estado(dto.estado())
             .build();
     }
     

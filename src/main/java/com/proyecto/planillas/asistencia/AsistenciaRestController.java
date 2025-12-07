@@ -6,6 +6,7 @@ import org.apache.catalina.connector.Response;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -55,21 +56,31 @@ public class AsistenciaRestController {
     // }
 
     // @PutMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
-    // public ResponseEntity<AsistenciaViewDTO> updateAsistencia(@RequestBody AsistenciaWriteDTO asistenciaWriteDTO) {
-    //     try {
-    //         return ResponseEntity.ok(asistenciaService.updateAsistencia(asistenciaWriteDTO));
-    //     } catch (Exception e) {
-    //         throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, e.getMessage());
-    //     }
+    // public ResponseEntity<AsistenciaViewDTO> updateAsistencia(@RequestBody
+    // AsistenciaWriteDTO asistenciaWriteDTO) {
+    // try {
+    // return
+    // ResponseEntity.ok(asistenciaService.updateAsistencia(asistenciaWriteDTO));
+    // } catch (Exception e) {
+    // throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR,
+    // e.getMessage());
+    // }
     // }
 
     @PostMapping("/registrar")
-public ResponseEntity<AsistenciaViewDTO> registrar(
-        @RequestBody AsistenciaWriteDTO dto) {
-    try {
-        return ResponseEntity.ok(asistenciaService.registrarAsistencia(dto));
-    } catch (Exception e) {
-        throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, e.getMessage());
+    public ResponseEntity<AsistenciaViewDTO> registrar(
+            @RequestBody AsistenciaWriteDTO dto) {
+        try {
+            return ResponseEntity.ok(asistenciaService.registrarAsistencia(dto));
+        } catch (Exception e) {
+            throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, e.getMessage());
+        }
     }
-}
+
+    //delete 
+    @DeleteMapping("{id}")
+    public ResponseEntity<Void> eliminar(@PathVariable Long id) {
+        asistenciaService.eliminar(id);
+        return ResponseEntity.ok().build();
+    }
 }

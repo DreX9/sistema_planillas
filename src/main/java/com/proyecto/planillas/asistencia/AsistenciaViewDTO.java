@@ -18,7 +18,6 @@ public record AsistenciaViewDTO(
     LocalDate fechaRegistro,
     AsistenciaEstado estado,
     String descripcion,
-    Long empleadoId,
     @JsonProperty("empleado_nombre")
     String empleadoNombre
 

@@ -49,4 +49,13 @@ public class EmpleadoService {
         }
 
     }
+
+    // New method to search employees by name or DNI
+    public List<EmpleadoViewDTO> buscarEmpleados(String texto) {
+    List<Empleado> empleados = empleadoRepository
+        .findByNombreContainingIgnoreCaseOrNumeroDocumentoContainingIgnoreCase(texto, texto);
+    return empleados.stream()
+        .map(empleadoMapper::toDto)
+        .toList();
+}
 }

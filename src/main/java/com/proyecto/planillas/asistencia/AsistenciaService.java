@@ -60,7 +60,6 @@ public class AsistenciaService {
     @Transactional
     public AsistenciaViewDTO registrarAsistencia(AsistenciaWriteDTO dto) {
 
-        // 1. Obtener empleado
         Empleado empleado = empleadoRepository.findById(dto.empleadoId())
                 .orElseThrow(() -> new IllegalStateException("Empleado no encontrado"));
 
@@ -70,21 +69,28 @@ public class AsistenciaService {
         LocalTime horaEntrada = horario.getHoraEntrada();
         LocalTime horaSalida = horario.getHoraSalida();
 
-        // 2. Determinar estado (Puntual – Tarde)
-        LocalTime tolerancia = horaEntrada.plusMinutes(5);
+        AsistenciaEstado estado;
 
-        AsistenciaEstado estado = (horaActual.isAfter(tolerancia))
-                ? AsistenciaEstado.Tarde
-                : AsistenciaEstado.Puntual;
+        // 1. Si viene JUSTIFICADO desde el front, respétalo
+        if (dto.estado() != null && dto.estado() == AsistenciaEstado.Justificado) {
+            estado = AsistenciaEstado.Justificado;
+        } else {
+            // 2. Caso contrario calcular el estado
+            LocalTime tolerancia = horaEntrada.plusMinutes(5);
 
-        // 3. Crear la asistencia
+            estado = (horaActual.isAfter(tolerancia))
+                    ? AsistenciaEstado.Tarde
+                    : AsistenciaEstado.Puntual;
+        }
+
+        // 3. Registrar asistencia
         Asistencia asistencia = Asistencia.builder()
                 .horaInicio(horaActual)
                 .horaFinal(horaSalida)
                 .fechaRegistro(LocalDate.now())
                 .estado(estado)
                 .descripcion(dto.descripcion())
-                .empleadoId(empleado) // correcto
+                .empleadoId(empleado)
                 .build();
 
         asistenciaRepository.save(asistencia);
@@ -92,4 +98,8 @@ public class AsistenciaService {
         return asistenciaMapper.toDto(asistencia);
     }
 
+    @Transactional
+    public void eliminar(Long id) {
+        asistenciaRepository.deleteById(id);
+    }
 }
